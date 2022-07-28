@@ -27,6 +27,12 @@ Rails プロジェクト作成
 $ docker-compose run --no-deps app rails new . --force --api --database=mysql -T
 ```
 
+- --no-deps リンクしたサービスを起動しない
+- --force 既存の Gemfile を上書きするための設定
+- --api API に必要なファイルのみ生成
+- --database=mysql データベースを MySQL に指定
+- -T minitest の生成をしない（RSpec を使用したいため）
+
 database.yml の設定変更(config/database.yml)
 
 ```bash
