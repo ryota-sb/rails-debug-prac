@@ -1,16 +1,18 @@
-FROM ruby:2.5
+FROM ruby:2.7.4
 
-RUN apt-get update -qq && \
-    apt-get install -y build-essential nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get update -qq \
+    && apt-get install -y nodejs \
+    && npm install -g yarn
 
-RUN mkdir /work
+Run mkdir /work
 
 WORKDIR /work
 
 COPY Gemfile /work/Gemfile
 COPY Gemfile.lock /work/Gemfile.lock
 
-RUN bundle install
+RUN bundle config set --global force_ruby_platform true && bundle install
 
 COPY . /work
 
