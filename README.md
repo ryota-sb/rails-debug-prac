@@ -1,4 +1,4 @@
-# Rails API Docker 環境
+# Rails API
 
 - Ruby 2.7.4
 - Rails 6.1.6
