@@ -24,7 +24,7 @@ Run bundle config set --global force_ruby_platform true
 Rails プロジェクト作成
 
 ```bash
-$ docker-compose run --no-deps app rails new . --force --api --database=mysql -T
+$ docker-compose run --no-deps app rails new . --force --api --database=mysql -T --skip-bundle
 ```
 
 - --no-deps リンクしたサービスを起動しない
@@ -32,6 +32,7 @@ $ docker-compose run --no-deps app rails new . --force --api --database=mysql -T
 - --api API に必要なファイルのみ生成
 - --database=mysql データベースを MySQL に指定
 - -T minitest の生成をしない（RSpec を使用したいため）
+- --skip-bundle bundle install をスキップする（後で docker-compose build するため）
 
 database.yml の設定変更(config/database.yml)
 
